@@ -1,19 +1,21 @@
 <template>
-    <my-page title="幻灯片" :page="page">
-        <div class="empty" v-if="!images.length">请先上传图片</div>
-        <ul class="image-list">
-            <li class="item" v-for="img, index in images" :style="{width: imgWidth + 'px'}">
-                <img class="img" :src="img.url">
-                <ui-icon-button class="btn" icon="close" @click="remove(img, index)" />
-            </li>
-        </ul>
-        <ui-text-field v-model.number="offsetTime" label="切换时间（秒）" />
-        <div class="btns">
-            <ui-raised-button class="file-select-btn btn" label="上传图片" secondary>
-                <input type="file" class="ui-file-button" accept="image/*" @change="fileChange($event)">
-            </ui-raised-button>
-            <!-- <ui-raised-button class="btn" secondary label="上传图片" @click="play" /> -->
-            <ui-raised-button primary label="播放" @click="play" />
+    <my-page title="图片幻灯片" :page="page">
+        <div class="container">
+            <div class="empty" v-if="!images.length">请先上传图片</div>
+            <ul class="image-list">
+                <li class="item" v-for="img, index in images" :style="{width: imgWidth + 'px'}">
+                    <img class="img" :src="img.url">
+                    <ui-icon-button class="btn" icon="close" @click="remove(img, index)" />
+                </li>
+            </ul>
+            <ui-text-field v-model.number="offsetTime" label="切换时间（秒）" />
+            <div class="btns">
+                <ui-raised-button class="file-select-btn btn" label="上传图片" secondary>
+                    <input type="file" class="ui-file-button" accept="image/*" @change="fileChange($event)">
+                </ui-raised-button>
+                <!-- <ui-raised-button class="btn" secondary label="上传图片" @click="play" /> -->
+                <ui-raised-button primary label="播放" @click="play" />
+            </div>
         </div>
         <div class="slider" v-if="slidervisible" @click="stop">
             <img class="img" :src="sliderImg" />
@@ -48,6 +50,13 @@
                 slidervisible: false,
                 page: {
                     menu: [
+                        {
+                            type: 'icon',
+                            icon: 'help',
+                            href: 'https://project.yunser.com/products/cb83d6a0150b11eab0b24dd2f63334a6',
+                            target: '_blank',
+                            title: '帮助'
+                        }
                         // {
                         //     type: 'icon',
                         //     icon: 'all_inclusive',
@@ -146,6 +155,9 @@
 </script>
 
 <style lang="scss" scoped>
+.container {
+    padding: 16px;
+}
 .empty {
     padding: 80px 0;
     color: #999;

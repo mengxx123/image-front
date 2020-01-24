@@ -38,6 +38,13 @@
                             icon: 'all_inclusive',
                             click: this.link,
                             title: '用其他应用打开'
+                        },
+                        {
+                            type: 'icon',
+                            icon: 'help',
+                            href: 'https://project.yunser.com/products/e5440d40150a11eab0b24dd2f63334a6',
+                            target: '_blank',
+                            title: '帮助'
                         }
                     ]
                 }
